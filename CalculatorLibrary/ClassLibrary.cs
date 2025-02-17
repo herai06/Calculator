@@ -38,7 +38,8 @@
                         break;
                     case 3:
                         numbers = GetNumbers();
-                        Console.WriteLine($"Частное чисел = {Division(numbers)}");
+                        if (Division(numbers) != 0)
+                            Console.WriteLine($"Частное чисел = {Division(numbers)}");
                         Console.WriteLine("---------------------------------\n");
                         break;
                     case 4:
@@ -123,7 +124,11 @@
                 if (numbers[i] != 0)
                     result /= numbers[i];
                 else
+                {
+                    //Console.WriteLine("Некорректный ввод, делить на 0 нельзя! Попробуйте снова.\n");
+                    //return 0;
                     throw new DivideByZeroException("Ошибка: деление на ноль!");
+                }
             }
             return result;
         }
